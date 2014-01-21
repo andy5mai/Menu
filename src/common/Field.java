@@ -4,13 +4,29 @@ public class Field
 {
 	private Field fieldTitle;
 	private String strContent;
-	private int nFieldSize;
+	private int nFieldLength;
 	
-	public Field(Field fieldTitle, String strContent, int nFieldSize)
+	private Field(String strContent, int nFieldLength)
+	{
+		this.fieldTitle = null;
+		this.strContent = strContent;
+		this.nFieldLength = nFieldLength;
+	}
+	
+	private Field(Field fieldTitle, String strContent)
 	{
 		this.fieldTitle = fieldTitle;
 		this.strContent = strContent;
-		this.nFieldSize = nFieldSize;
+	}
+	
+	public static Field getNewTitle(String strContent, int nFieldLength)
+	{
+		return new Field(strContent, nFieldLength);
+	}
+	
+	public static Field getNew(Field fieldTitle, String strContent)
+	{
+		return new Field(fieldTitle, strContent);
 	}
 	
 	public Field getTitleField()
@@ -23,8 +39,10 @@ public class Field
 		return this.strContent;
 	}
 	
-	public int getFieldSize()
+	public int getFieldLength()
 	{
-		return this.nFieldSize;
+		if (this.fieldTitle != null) return this.fieldTitle.getFieldLength();
+		
+		return this.nFieldLength;
 	}
 }
