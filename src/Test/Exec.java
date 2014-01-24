@@ -6,9 +6,9 @@ public class Exec
 {
 	private enum Title
 	{
-		test1(3)
-		, test2(4)
-		, test3(2);
+		test1(5)
+		, test2(10)
+		, test3(6);
 		
 		private int nFieldSize;
 		private Title(int nFieldSize)
@@ -36,14 +36,14 @@ public class Exec
 		{
 			menuManager.addTitle(title.name(), title.getFieldSize());
 		}
-		
-		for(int i = 0; i < 2; i++)
-		{
-			for(Title title : Title.values())
-			{
-				menuManager.addField(menuManager.getTitle(title.name()), "111222" + i);
-			}
-		}
+//		
+//		for(int i = 0; i < 2; i++)
+//		{
+//			for(Title title : Title.values())
+//			{
+//				menuManager.addField(menuManager.getTitle(title.name()), "11122233" + i);
+//			}
+//		}
 		
 		menuManager.print();
 	}

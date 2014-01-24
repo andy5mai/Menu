@@ -25,9 +25,9 @@ public class PrintManager
 									    , nColIndex
 									    , colsFields.size()
 									    , field.getContent()
-										, field.getFieldLength()
-										, sSeparateLength
-										, cPatchChar);
+										, field.getFieldLength());
+//										, sSeparateLength
+//										, cPatchChar);
 			if (nMaxIndex < nMaxFieldIndex) nMaxIndex = nMaxFieldIndex; 
 			
 			fields[nColIndex] = field;
@@ -35,19 +35,15 @@ public class PrintManager
 		}
 		
 		String str;
-		for(int i = 0; i < nMaxIndex; i++)
+		for(int i = 0; i <= nMaxIndex; i++)
 		{
-			if ((str = mapLeftStrings.get(i)) == null)
-			{
-				System.out.print(this.getPatchedStr(""
-						   							, fields[i % fields.length]
-						   							  .getFieldLength()
-													, sSeparateLength
-													, cPatchChar));
-				continue;
-			}
-			
-			System.out.print(str);
+			if ((str = mapLeftStrings.get(i)) == null) str = "";
+
+			System.out.print(this.getPatchedStr(str
+												, fields[i % fields.length]
+												  .getFieldLength()
+												, sSeparateLength
+												, cPatchChar));
 			if (i % fields.length == fields.length - 1) System.out.println();
 		}
 		
@@ -58,9 +54,9 @@ public class PrintManager
 					   	  , int nListIndex
 					   	  , int nFieldsSize
 					   	  , String strContent
-					   	  , int nExpectedLength
-					   	  , short sSeparateLength
-					   	  , char cPatchChar)
+					   	  , int nExpectedLength)
+//					   	  , short sSeparateLength
+//					   	  , char cPatchChar)
 	{
 		if (strContent.length() > nExpectedLength)
 		{
@@ -70,9 +66,9 @@ public class PrintManager
 					   , nFieldsSize
 					   , strContent.substring(nExpectedLength
 										      , strContent.length())
-					   , nExpectedLength
-					   , sSeparateLength
-					   , cPatchChar);
+					   , nExpectedLength);
+//					   , sSeparateLength
+//					   , cPatchChar);
 		}
 		
 		mapLeftStrings.put(nListIndex, strContent);
