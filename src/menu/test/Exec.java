@@ -1,4 +1,4 @@
-package Test;
+package menu.test;
 
 import common.MenuManager;
 
@@ -45,7 +45,7 @@ public class Exec
 //			}
 //		}
 		
-		menuManager.print();
+		menuManager.print();		
 	}
 
 }
